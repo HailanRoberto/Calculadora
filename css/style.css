@@ -3,13 +3,13 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     outline: none;
-    font-family: 'Noto Sans', sans-serif;
+    box-sizing: border-box;
+    font-family: 'Noto Sans';
 }
 
 html {
-    font-size: 65%;
+    font-size: 62.5%;
 }
 
 .container {
@@ -22,28 +22,28 @@ html {
 }
 
 .calculadora {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
     width: 40rem;
     height: 60rem;
-    background-color: #ffffff;
+    background-color: #F0F1F4;
     padding: 3rem 2rem;
     border-radius: 2rem;
     box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.4);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
 }
 
 .tela {
-    width: 34rem;
+    width: 35rem;
     height: 8rem;
-    background-color: #a3a3a3;
+    text-align: right;
+    background-color: #8d8d8d;
     margin-bottom: 1.5rem;
     border: none;
     pointer-events: none;
-    text-align: right;
     font-size: 2rem;
-    letter-spacing: 0.1rem;
+    letter-spacing: .1rem;
     color: #fff;
     padding: 2rem;
 }
@@ -54,13 +54,50 @@ html {
     height: 7rem;
     margin: 1rem;
     border: none;
-    background: linear-gradient(180deg, hsl(0, 0%, 90%), hsl(0, 0%, 95%));
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.6);
-    border: 2px solid #222;
-    border-radius: 1rem;
+    background: linear-gradient(180deg, #dadada, #acacac);
+    box-shadow: inset 0 -0.8rem 0.8rem rgba(0, 0, 0, 0.25),
+        0 0 0 0.2rem rgba(0, 0, 0, 0.75), 1rem 2rem 2.5rem rgba(0, 0, 0, 0.4);
     cursor: pointer;
+    position: relative;
 }
 
-.btn__clear {
+.clear {
     width: 25rem;
+}
+
+.btn::before,
+.igualdade::before {
+    content: attr(data-num);
+    position: absolute;
+    top: 0.3rem;
+    left: 0.4rem;
+    bottom: 0.7rem;
+    right: 1.2rem;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.2rem;
+    background: linear-gradient(90deg, #ededed, #a6a6a6);
+    box-shadow: -0.5rem -0, 5rem 1.5rem rgba(0, 0, 0, 0.1), 1rem rgba(0, 0, 0, 0.15);
+    border-left: 0.1rem solid rgba(56, 56, 56, 0.267);
+    border-bottom: 0.1rem solid rgba(56, 56, 56, 0.267);
+    border-top: 0.1rem solid rgba(56, 56, 56, 0.267);
+    border-radius: 0.5rem;
+}
+
+.igualdade {
+    background: #37925a;
+}
+
+.igualdade::before {
+    background: #37925a;
+    border-left: 0.1rem solid #fff4;
+    border-bottom: 0.1rem solid #fff4;
+    border-top: 0.1rem solid #fff4;
+}
+
+.btn:active,
+.igualdade:active {
+    filter: brightness(1.5);
 }
